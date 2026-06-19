@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="softwareservices_tag_view_list" model="ir.ui.view">
+        <field name="name">softwareservices.tag.list</field>
+        <field name="model">softwareservices.tag</field>
+        <field name="arch" type="xml">
+            <list string="Invoice Tags" editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="softwareservices_tag_view_form" model="ir.ui.view">
+        <field name="name">softwareservices.tag.form</field>
+        <field name="model">softwareservices.tag</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Tag">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color_picker"/>
+                        <field name="active" widget="boolean_toggle"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="softwareservices_tag_view_search" model="ir.ui.view">
+        <field name="name">softwareservices.tag.search</field>
+        <field name="model">softwareservices.tag</field>
+        <field name="arch" type="xml">
+            <search string="Invoice Tags">
+                <field name="name"/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="softwareservices_tag_action" model="ir.actions.act_window">
+        <field name="name">Invoice Tags</field>
+        <field name="res_model">softwareservices.tag</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first invoice tag</p>
+            <p>
+                Tags let you classify customer invoices and vendor bills with your
+                own colour-coded labels, and filter on them from the invoice and
+                bill lists.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="softwareservices_tag_menu"
+              name="Invoice Tags"
+              parent="account.menu_finance_configuration"
+              action="softwareservices_tag_action"
+              groups="account.group_account_user"
+              sequence="100"/>
+
+</odoo>
