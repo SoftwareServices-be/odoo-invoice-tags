@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Invoice Tags",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Accounting/Accounting",
     "summary": "Colour-coded tags to classify customer invoices and vendor bills",
     "description": """
